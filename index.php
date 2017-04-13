@@ -1,3 +1,9 @@
+<?php
+    if(!isset($_SESSION))
+        session_start();
+      
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +17,7 @@
 <body>
 
     <?php
+
         //connect to database
         include('include/connect.php');
 

@@ -5,6 +5,8 @@
 </head>
 <body>
 
+
+
 <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -41,17 +43,19 @@
                         <a href="index.php?function=signup">Sign Up</a>
                     </li>
                     <li>
-                        <a href="index.php?function=signin">Login</a>
-                    </li>
-                    <li>
                         <a>
                             <span class ="glyphicon glyphicon-user"></span>
-                            Admin
+                            <?php 
+                                if(isset($_SESSION['useradmin']))
+                                    echo $_SESSION['useradmin'];
+                                else
+                                    echo '<a href="index.php?function=signin">Login</a>';
+                             ?>
                         </a>
                     </li>
 
                     <li>
-                        <a href="#">Logout</a>
+                        <a href="index.php?function=logout">Logout</a>
                     </li>
                     
                 </ul>

@@ -3,7 +3,7 @@
 
     $counter = 0;
 
-    $sql = "select count(*) from product where cate_id = 2";
+    $sql = "SELECT count(*) FROM product ORDER BY created_at desc";
 
     $recordsetrow = $db->query($sql);
 
@@ -37,21 +37,18 @@
             $tranghientai = $_GET['tranghientai'];
             }
 
-    $sql1 = "select * from product where cate_id = 2 limit {$dongbatdau}, {$kichthuoctrang}";
+    $sql1 = "select * from product order by created_at desc limit {$dongbatdau}, {$kichthuoctrang}";
 
     $recordset = $db->query($sql1);
 
-    //$chucnang = '';
-    $chucnang = $_GET['function'];
-    //echo $chucnang;
-    //exit;
-
     while ($row = $recordset->fetch(PDO::FETCH_ASSOC)) {
+
+    
                                             
 ?>
     <div>
         <div style="float: left; padding: 20px; border: 1px solid #CCCCCC; margin: 6px;">
-            <a href="#"><img src="image\product\<?php echo $chucnang; ?>\<?php echo $row['picture']; ?>" width= 150 height = 150/></a>
+            <a href="#"><img src="image\product\lastadd\<?php echo $row['picture']; ?>" width= 150 height = 150/></a>
             <a href="#"><p style="text-align: center;"><?php echo $row['prod_name']; ?></p></a>
             <a href="#"><p style="text-align: center;"><?php echo $row['price']; ?>đ</p></a>
         </div>
@@ -71,7 +68,7 @@
         else
         {
 ?>
-    <a href="index.php?function=Sony&tranghientai=<?php echo $i; ?>"><?php echo $i . " " ?></a>
+    <a href="index.php?tranghientai=<?php echo $i; ?>"><?php echo $i . " " ?></a>
    
 <?php
         }

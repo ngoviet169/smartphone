@@ -41,12 +41,16 @@
 
     $recordset = $db->query($sql1);
 
+    $chucnang = '';
+    $chucnang = $_GET['function'];
+    //echo $chucnang;
+
     while ($row = $recordset->fetch(PDO::FETCH_ASSOC)) {
                                             
 ?>
     <div>
         <div style="float: left; padding: 20px; border: 1px solid #CCCCCC; margin: 6px;">
-            <a href="#"><img src="image\product\samsung\<?php echo $row['picture']; ?>" width= 150 height = 150/></a>
+            <a href="#"><img src="image\product\<?php echo $chucnang; ?>\<?php echo $row['picture']; ?>" width= 150 height = 150/></a>
             <a href="#"><p style="text-align: center;"><?php echo $row['prod_name']; ?></p></a>
             <a href="#"><p style="text-align: center;"><?php echo $row['price']; ?>đ</p></a>
         </div>

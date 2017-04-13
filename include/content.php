@@ -19,6 +19,8 @@
                                     echo "Samsung";
                                 } else if($chucnang == 'Sony'){
                                     echo "Sony";
+                                } else if($chucnang == ""){
+                                    echo "New product";
                                 }
                             ?>
                         </h2>
@@ -30,6 +32,11 @@
                             <?php
                                 
                                 switch ($chucnang) {
+
+                                    case '':
+                                        include('include/lastAdd.php');
+                                        break;
+
                                     case 'aboutus':
                                         include('include/introduce.php');
                                         break;
@@ -53,6 +60,11 @@
                                     case 'Sony':
                                         include('include/sony.php');
                                         break;
+
+                                    case 'logout':
+                                        include('logout.php');
+                                        break;
+                                        
                                     default:
                                         
                                         break;

@@ -30,7 +30,7 @@
             }   
             else 
             {   
-                if($role==1){
+                if($role==1 || $role == 2){
                     if(!isset($_SESSION))
                     session_start();
                     $_SESSION["useradmin"]=$user;
@@ -38,8 +38,9 @@
                     $_SESSION['hotenadmin']=$thanhvien['fullname'];    
                     $_SESSION["role"]=$thanhvien["role"];
                     header("location:index.php");
-                }
-                else echo"<script>alert('Sorry, You cannot login to admin area!');window.location='login.php'</script>";
+                } else if($role == 0)
+                    echo "<script>alert('Sorry, This account has been baned!');window.location='index.php?function=signin'</script>";
+                else echo"<script>alert('You have not sign up yet!');window.location='index.php?function=signin'</script>";
             }
         }
     }
