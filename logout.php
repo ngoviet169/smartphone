@@ -1,8 +1,8 @@
 <?php
     if(!isset($_SESSION))
         session_start();
-        unset($_SESSION["success"]);
+        session_destroy();
         unset($_SESSION["user"]);
-        //header("location:login.php");
+        echo "<script> window.location.replace('index.php') </script>";
 
 ?>

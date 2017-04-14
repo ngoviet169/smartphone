@@ -39,23 +39,37 @@
                 </form>
 
                 <ul class="nav navbar-nav pull-right">
+                    <?php
+                        if(!isset($_SESSION['useradmin'])){
+                        ?>
+                        <li>
+                            <a href="index.php?function=signup">Sign Up</a>
+                        </li>
+                    <?php
+                        }
+                    ?>
+                    <?php
+                        if(!isset($_SESSION['useradmin']))
+                        {
+                            echo    '<li>
+                                        <a href="index.php?function=signin">Sign in</a>
+                                    </li>';
+                        } else{
+                     ?>         <li>
+                                <a href="#">
+                                    <span class ="glyphicon glyphicon-user"></span>
+                                    <?php echo $_SESSION['useradmin']; ?>
+                                </a>
+                                </li>
+                    <?php
+                        }
+                        
+                    ?>
                     <li>
-                        <a href="index.php?function=signup">Sign Up</a>
-                    </li>
-                    <li>
-                        <a>
-                            <span class ="glyphicon glyphicon-user"></span>
-                            <?php 
-                                if(isset($_SESSION['useradmin']))
-                                    echo $_SESSION['useradmin'];
-                                else
-                                    echo '<a href="index.php?function=signin">Login</a>';
-                             ?>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="index.php?function=logout">Logout</a>
+                        <?php
+                            if(isset($_SESSION['useradmin']))
+                                echo '<a href="index.php?function=logout">Logout</a>';
+                        ?>
                     </li>
                     
                 </ul>

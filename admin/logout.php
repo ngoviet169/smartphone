@@ -3,5 +3,5 @@
         session_start();
         unset($_SESSION["success"]);
         unset($_SESSION["user"]);
-        header("location:login.php");
+        echo "<script> window.location.replace('login.php') </script>";
 ?>
