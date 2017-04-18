@@ -40,7 +40,7 @@
 
                 <ul class="nav navbar-nav pull-right">
                     <?php
-                        if(!isset($_SESSION['useradmin'])){
+                        if(!isset($_SESSION['user'])){
                         ?>
                         <li>
                             <a href="index.php?function=signup">Sign Up</a>
@@ -49,7 +49,7 @@
                         }
                     ?>
                     <?php
-                        if(!isset($_SESSION['useradmin']))
+                        if(!isset($_SESSION['user']))
                         {
                             echo    '<li>
                                         <a href="index.php?function=signin">Sign in</a>
@@ -58,7 +58,7 @@
                      ?>         <li>
                                 <a href="#">
                                     <span class ="glyphicon glyphicon-user"></span>
-                                    <?php echo $_SESSION['useradmin']; ?>
+                                    <?php echo $_SESSION['user']; ?>
                                 </a>
                                 </li>
                     <?php
@@ -67,7 +67,7 @@
                     ?>
                     <li>
                         <?php
-                            if(isset($_SESSION['useradmin']))
+                            if(isset($_SESSION['user']))
                                 echo '<a href="index.php?function=logout">Logout</a>';
                         ?>
                     </li>

@@ -10,7 +10,9 @@
         if(fullname == ''){
             alert('Full name can not required !');
             return false;
-        } else if(fullname.length < 3){
+        }
+
+        if(fullname.length < 3){
             alert('Full name must be 3 character at least !');
             return false;
         }
@@ -18,7 +20,9 @@
         if(user_name == ''){
             alert('User name can not required !');
             return false;
-        } else if(user_name.length < 3){
+        }
+
+        if(user_name.length < 3){
             alert('User name must be 3 character at least !');
             return false;
         }
@@ -26,7 +30,10 @@
         if(password == ''){
             alert('Password can not required !');
             return false;
-        } else if(password.length < 8){
+
+        }
+
+        if(password.length < 8){
             alert('Password must be 8 character at least');
             return false;
         }
@@ -34,15 +41,15 @@
         if(repassword == ''){
             alert('Please retype password !');
             return false;
-        } else if(repassword != password){
+        }
+
+        if(repassword != password){
             alert('Password and repassword are not match !');
             return false;
         }
 
-        //if (!filter.test(email.value)) { 
-             //alert('Invalid email address.\nExample@gmail.com'); 
-             //return false; 
-        //}
+        return true;
+        
 
     }
 </script>

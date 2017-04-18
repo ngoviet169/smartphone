@@ -5,23 +5,28 @@
         //check user name
         $test = "select count(*) from `user` where `user_name` = '{$user_name}'";
         $test1 = $db->query($test);
-        $test2 = $test1->fetch(PDO::FETCH_ASSOC);
+        $test2 = $test1->fetch(PDO::FETCH_COLUMN);
 
         //check email
 
-        //$test3 = "select count(*) from `user` where `email` = '{$email}'";
-        //$test4 = $db->query($test3);
-        //$test5 = $test4->fetch(PDO::FETCH_ASSOC);
+        $test3 = "select count(*) from `user` where `email` = '{$email}'";
+        $test4 = $db->query($test3);
+        $test5 = $test4->fetch(PDO::FETCH_COLUMN);
 
-        //var_dump($test5);
+        //echo $test5;
         //echo $email;
         //var_dump($test2);
         //echo $user_name;
         //exit;
-        if($test2 != 0){
+        if($test2 == 0 && $test5 == 0){
             $sql = "insert into user(user_name, fullname, email, password, role) value ('$user_name', '$fullname', '$email', '$password', 2)";
 
             $query = $db->query($sql);
+
+            echo "<script>alert('Registration successfully !');</script>";
+
+            header('location:index.php?function=signin');
+            //echo "abcd";
         } else 
 
             echo "<script>alert('User name or email already exists !');window.history.go(-1);</script>";

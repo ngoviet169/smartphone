@@ -21,6 +21,10 @@
                                     echo "Sony";
                                 } else if($chucnang == ""){
                                     echo "New product";
+                                } else if($chucnang == 'showCart'){
+                                    echo "Shopping Cart";
+                                } else if($chucnang == 'detail'){
+                                    echo "Detail";
                                 }
                             ?>
                         </h2>
@@ -64,7 +68,30 @@
                                     case 'logout':
                                         include('logout.php');
                                         break;
-                                        
+                                    
+                                    case 'addCart':
+                                        include('addCart.php');
+                                        break;
+
+                                    case 'showCart':
+                                        include('showCart.php');
+                                        break;
+
+                                    case 'updateCart':
+                                        include('updateCart.php');
+                                        break;    
+
+                                    case 'delCart':
+                                        include('delCart.php');
+                                        break;
+
+                                    case 'detail':
+                                        include('detail.php');
+                                        break;
+
+                                    case 'comment':
+                                        include('comment.php');
+                                        break;
                                     default:
                                         
                                         break;
