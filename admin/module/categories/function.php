@@ -59,7 +59,7 @@
         $cate_name = $_POST['cate_name'];
     if(isset($_POST['note']))
         $note = $_POST['note'];
-
+    
     if(isset($_POST['edit'])){
         $id = $_POST['id'];
         editCate($id, $cate_name, $note);

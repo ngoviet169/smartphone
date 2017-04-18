@@ -39,6 +39,10 @@
                     case 'deleteCate':
                         include('module/categories/function.php');
                         break;
+
+                    case 'addProduct':
+                        include('module/product/function.php');
+                        break;
                     default:
                         # code...
                         break;

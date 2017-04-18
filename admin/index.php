@@ -15,6 +15,8 @@ include "connect.php"; ?>
     <!-- Bootstrap Core CSS -->
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <link href="bower_components/bootstrap-select-1-12-2/dist/css/bootstrap-select.min.css" rel="stylesheet">
+
     <!-- MetisMenu CSS -->
     <link href="bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
 
@@ -69,6 +71,8 @@ include "connect.php"; ?>
 
     <!-- Custom Theme JavaScript -->
     <script src="dist/js/sb-admin-2.js"></script>
+
+    <script src="bower_components/bootstrap-select-1-12-2/dist/js/bootstrap-select.min.js"></script>
 
     <!-- DataTables JavaScript -->
     <script src="bower_components/DataTables/media/js/jquery.dataTables.min.js"></script>
