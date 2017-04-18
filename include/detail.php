@@ -22,7 +22,7 @@
       <p><img src="image\product\lastadd\<?php echo $row['picture']; ?>" width="170" height="170"><br />
         
       </p>
-      <a href="index.php?function=addCart&&id=<?php echo $row['prod_id']; ?>">Add to Cart</a>
+      <a href="index.php?process=add-cart&&id=<?php echo $row['prod_id']; ?>">Add to Cart</a>
       <p>&nbsp;</p>
     </div>
     <form method="post" name="form">
@@ -106,16 +106,16 @@ thanh toán:</td>
 
   $query2 = $db->query($sql2);
 
-  if($_SESSION['user'])
+  if(isset($_SESSION['user']))
+    {
   $user_name = $_SESSION['user'];
   // echo $user_name;
   $sql3 = "select id from user where user_name = '{$user_name}'";
 
   $query3 = $db->query($sql3);
-  // var_dump($query3);
+  
   $user_id = $query3->fetch(PDO::FETCH_COLUMN);
-  /*echo $user_id;
-  exit;*/
+  }
 
   $sql4 = "select cmt_id from comment where cmt_prod_id = {$id}";
 
@@ -129,8 +129,10 @@ thanh toán:</td>
       <td><?php echo $content; ?></td>
       <td>
         <?php
-          if($user_name == $username || $user_name == 'vietbeo'){
-            echo "<a href=index.php?function=delCommetn&&cmt_id=".$cmt_id.">Delete</a>";
+          if(isset($_SESSION['user'])){
+            if($user_name == $username || $user_name == 'vietbeo'){
+              echo "<a href=index.php?process=delete-comment&&cmt_id=".$cmt_id.">Delete</a>";
+            }
           }
         ?>
       </td>
@@ -146,7 +148,7 @@ thanh toán:</td>
   if(isset($_SESSION['user']))
   {
 ?>
-<form action="index.php?function=comment" method="post">
+<form action="index.php?process=comment" method="post">
   <input type="hidden" name="id" value="<?php echo $id; ?>">
   <input type="hidden" name="user" value="<?php echo $_SESSION['user']; ?>">
   <input type="text" name="content">

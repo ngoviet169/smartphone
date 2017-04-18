@@ -64,30 +64,15 @@
                                     case 'Sony':
                                         include('include/sony.php');
                                         break;
-
-                                    case 'logout':
-                                        include('logout.php');
-                                        break;
                                     
-                                    case 'addCart':
-                                        include('addCart.php');
-                                        break;
-
                                     case 'showCart':
                                         include('showCart.php');
                                         break;
-
-                                    
 
                                     case 'detail':
                                         include('detail.php');
                                         break;
 
-                                    case 'comment': case 'delComment':
-                                        # code...
-                                        break;
-                                        include('comment.php');
-                                        break;
                                     default:
                                         
                                         break;

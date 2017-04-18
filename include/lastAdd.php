@@ -50,7 +50,7 @@
             <a href="index.php?function=detail&&id=<?php echo $row['prod_id']; ?>"><img src="image\product\lastadd\<?php echo $row['picture']; ?>" width= 150 height = 150/></a>
             <a href="index.php?function=detail&&id=<?php echo $row['prod_id']; ?>"><p style="text-align: center;"><?php echo $row['prod_name']; ?></p></a>
             <a href="index.php?function=detail&&id=<?php echo $row['prod_id']; ?>"><p style="text-align: center;"><?php echo $row['price']; ?>đ</p></a>
-            <a href="index.php?function=addCart&&id=<?php echo $row['prod_id']; ?>"><p style="text-align: center;">Add Cart</p>
+            <a href="index.php?process=add-cart&&id=<?php echo $row['prod_id']; ?>"><p style="text-align: center;">Add Cart</p>
         </div>
     </div>
     

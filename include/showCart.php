@@ -6,26 +6,28 @@
     if(isset($_SESSION['cart'])){
         foreach ($_SESSION['cart'] as $k => $v) {
             if(isset($k)){
-                $state = 2;
+                $state = 1;
             }
             $item[] = $k;
         }
     }
 
-    if($state != 2){
+    if($state != 1){
         echo "Ban khong co mon nao trong gio hang.<br>";
         echo "<a href=index.php>Continue Shopping</a>";
     }
 
     else{
     $str = implode(" ,", $item);
-    //$str2 = substr( $str, 2);
-    //echo $str;
-    //exit;
+
     $sql = "select * from product where prod_id in ($str) order by prod_id desc";
 
     $query = $db->query($sql);
-    //var_dump($query);
+    $sql1 = "select count(*) from product where prod_id in ($str) order by prod_id desc";
+
+    $query1 = $db->query($sql1);
+    $count = $query1->fetch(PDO::FETCH_COLUMN);
+    // echo $count;
     //exit;
     echo '<form action="index.php?process=update-cart" method="post">';
     ?>
@@ -43,7 +45,7 @@
     {
 ?>
             <tr>
-                <td><?php echo $row['prod_name']; ?></td>
+                <td><a href="index.php?function=detail&&id=<?php echo $row['prod_id']; ?>"><?php echo $row['prod_name']; ?></a></td>
                 <?php
                     echo '<td> '.$row['description'].'</td>';
                     echo '<td> '.number_format($row['price'],3).'VND</td>';
