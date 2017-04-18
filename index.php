@@ -1,7 +1,12 @@
 <?php
     if(!isset($_SESSION))
         session_start();
-    //echo $_SESSION['useradmin'];
+
+    //connect to database
+    include('include/connect.php');
+
+    //content
+    include('include/process-submit.php');
 ?>
 
 <!DOCTYPE html>
@@ -18,8 +23,7 @@
 
     <?php
 
-        //connect to database
-        include('include/connect.php');
+        
 
         //menu
         include('include/menu.php');

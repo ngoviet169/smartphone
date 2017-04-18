@@ -77,19 +77,15 @@
                                         include('showCart.php');
                                         break;
 
-                                    case 'updateCart':
-                                        include('updateCart.php');
-                                        break;    
-
-                                    case 'delCart':
-                                        include('delCart.php');
-                                        break;
+                                    
 
                                     case 'detail':
                                         include('detail.php');
                                         break;
 
-                                    case 'comment':
+                                    case 'comment': case 'delComment':
+                                        # code...
+                                        break;
                                         include('comment.php');
                                         break;
                                     default:

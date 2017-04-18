@@ -27,7 +27,7 @@
     $query = $db->query($sql);
     //var_dump($query);
     //exit;
-    echo "<form action=index.php?function=updateCart method=post>";
+    echo '<form action="index.php?process=update-cart" method="post">';
     ?>
     <table border="1">
             <tr>
@@ -49,7 +49,7 @@
                     echo '<td> '.number_format($row['price'],3).'VND</td>';
                 ?>
                 <td align="left"> <input type=text name=qty[<?php echo $row['prod_id']; ?>] size=5 value=<?php echo $_SESSION['cart'][$row['prod_id']] ?>></td>
-                <td><a href="index.php?function=delCart&&productid=<?php echo $row['prod_id']; ?>">Delete</a></td>
+                <td><a href="index.php?process=delete-cart&&productid=<?php echo $row['prod_id']; ?>">Delete</a></td>
                 <td align="left"> <?php echo number_format($_SESSION['cart'][$row['prod_id']]*$row['price'],3 ); ?>VND</td>
             </tr>
 

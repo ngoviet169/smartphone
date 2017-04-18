@@ -39,6 +39,32 @@
                 </form>
 
                 <ul class="nav navbar-nav pull-right">
+                    <li>
+                        <a href="index.php?function=showCart">
+                            <span class="glyphicon glyphicon-shopping-cart"></span>
+                            Cart
+                            <?php
+                                if(!isset($_SESSION['cart'])){
+                                    echo ": 0";
+                                }
+                                    if(isset($_SESSION['cart'])){
+                                        foreach ($_SESSION['cart'] as $k => $v) {
+                                            $item[] = $k;
+                                        }
+                                        if(isset($item)){
+                                            $str = implode(" ,", $item);
+                                            $sql1 = "select count(*) from product where prod_id in ($str) order by prod_id desc";
+
+                                            $query1 = $db->query($sql1);
+                                            $count = $query1->fetch(PDO::FETCH_COLUMN);
+                                            echo ": ".$count;
+                                        } else
+                                            echo ": 0";
+                                    }
+                                        
+                            ?>
+                        </a>
+                    </li>
                     <?php
                         if(!isset($_SESSION['user'])){
                         ?>
@@ -68,7 +94,7 @@
                     <li>
                         <?php
                             if(isset($_SESSION['user']))
-                                echo '<a href="index.php?function=logout">Logout</a>';
+                                echo '<a href="index.php?process=logout">Logout</a>';
                         ?>
                     </li>
                     

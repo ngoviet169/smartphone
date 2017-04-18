@@ -87,6 +87,59 @@ thanh toán:</td>
 </td>
 </tr>
 </table>
+<div>
+<?php
+  include('connect.php');
+  
+  //$sql1 = "SELECT user.user_name, comment.content from comment INNER JOIN user ON comment.user_id = user.id where cmt_prod_id = {$id}";
+?>
+  <table width="250">
+<?php
+  
+  $sql1 = "select user.user_name from comment inner join user on comment.user_id = user.id where cmt_prod_id = {$id}";
+
+  $query1 = $db->query($sql1);
+
+  //echo $username;
+
+  $sql2 = "select content from comment inner join user on comment.user_id = user.id where cmt_prod_id = {$id}";
+
+  $query2 = $db->query($sql2);
+
+  if($_SESSION['user'])
+  $user_name = $_SESSION['user'];
+  // echo $user_name;
+  $sql3 = "select id from user where user_name = '{$user_name}'";
+
+  $query3 = $db->query($sql3);
+  // var_dump($query3);
+  $user_id = $query3->fetch(PDO::FETCH_COLUMN);
+  /*echo $user_id;
+  exit;*/
+
+  $sql4 = "select cmt_id from comment where cmt_prod_id = {$id}";
+
+  $query4 = $db->query($sql4);
+
+  while($username = $query1->fetch(PDO::FETCH_COLUMN) and $content = $query2->fetch(PDO::FETCH_COLUMN) and $cmt_id = $query4->fetch(PDO::FETCH_COLUMN)){
+
+?>
+    <tr>
+      <td><?php echo $username; ?></td>
+      <td><?php echo $content; ?></td>
+      <td>
+        <?php
+          if($user_name == $username || $user_name == 'vietbeo'){
+            echo "<a href=index.php?function=delCommetn&&cmt_id=".$cmt_id.">Delete</a>";
+          }
+        ?>
+      </td>
+    </tr>
+  <?php
+    }
+  ?>
+  </table>
+</div>
 
 <!--check user loged-->
 <?php
@@ -100,6 +153,7 @@ thanh toán:</td>
   <input type="submit" name="comment" value="Comment">
 </form>
 </div>
+
 <?php
   }
 }

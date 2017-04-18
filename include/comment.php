@@ -1,14 +1,21 @@
 <?php
 
-    function addComment($cmt_id, $user_id, $prod_id, $content){
-        $sql = "insert into comment(user_id, prod_id, content) value('{$user_id}', '{$prod_id}', '{$content}')";
+    function addComment($user_id, $cmt_prod_id, $content){
+        include("connect.php");
+
+        $sql = "insert into comment(user_id, cmt_prod_id, content) value('{$user_id}', '{$cmt_prod_id}', '{$content}')";
 
         $db->exec($sql);
-    }
-    include("connect.php");
 
+        echo "<script>window.history.back(-1);window.refesh()</script>";
+    }
+
+    function delComment($cmt_id, $user_id){
+        include('connect.php');
+    }
+    
     if(isset($_POST['id']))
-        $prod_id = $_POST['id'];
+        $cmt_prod_id = $_POST['id'];
     if(isset($_POST['user']))
         $user_name = $_POST['user'];
 
@@ -23,6 +30,7 @@
     if(isset($_POST['content']))
         $content = $_POST['content'];
 
-    $sql1 = "insert into comment (prod)"
+    if(isset($_POST['comment']))
+        addComment($user_id, $cmt_prod_id, $content);
 
 ?>

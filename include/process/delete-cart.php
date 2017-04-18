@@ -11,6 +11,6 @@ else
 unset($_SESSION['cart'][$id]);
 }
 //echo "<script>window.location.replace(index.php?function=showCart);</script>";
-echo "<script>window.location.replace('index.php?function=showCart')</script>";
+header('location:index.php?function=showCart');
 //exit();
 ?>
