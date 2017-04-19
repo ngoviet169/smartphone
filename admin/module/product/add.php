@@ -5,9 +5,9 @@
 </div>
 <!-- /.col-lg-12 -->
 <div class="col-lg-7" style="padding-bottom:120px">
-    <form action="index.php?function=addProduct" method="POST">
+    <form action="index.php?function=addProduct" method="POST" enctype="multipart/form-data">
         <?php
-            include('connect.php');
+            //include('connect.php');
 
             $sql = "select * from categories";
 
