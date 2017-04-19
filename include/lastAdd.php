@@ -36,18 +36,18 @@
             $tranghientai = $_GET['tranghientai'];
             }
 
-    $sql1 = "select * from product order by created_at desc limit {$dongbatdau}, {$kichthuoctrang}";
+    $sql1 = "select categories.cate_name, product.* from product inner join categories on product.cate_id = categories.id order by created_at desc limit {$dongbatdau}, {$kichthuoctrang}";
 
-    $recordset = $db->query($sql1);
+    $query1 = $db->query($sql1);
 
-    while ($row = $recordset->fetch(PDO::FETCH_ASSOC)) {
+    while ($row = $query1->fetch(PDO::FETCH_ASSOC)) {
 
     
                                             
 ?>
     <div>
         <div style="float: left; padding: 20px; border: 1px solid #CCCCCC; margin: 6px;">
-            <a href="index.php?function=detail&&id=<?php echo $row['prod_id']; ?>"><img src="image\product\lastadd\<?php echo $row['picture']; ?>" width= 150 height = 150/></a>
+            <a href="index.php?function=detail&&id=<?php echo $row['prod_id']; ?>"><img src="admin\image\product\<?php echo $row['cate_name']; ?>\<?php echo $row['picture']; ?>" width= 150 height = 150/></a>
             <a href="index.php?function=detail&&id=<?php echo $row['prod_id']; ?>"><p style="text-align: center;"><?php echo $row['prod_name']; ?></p></a>
             <a href="index.php?function=detail&&id=<?php echo $row['prod_id']; ?>"><p style="text-align: center;"><?php echo $row['price']; ?>đ</p></a>
             <a href="index.php?process=add-cart&&id=<?php echo $row['prod_id']; ?>"><p style="text-align: center;">Add Cart</p>
