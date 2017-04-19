@@ -5,7 +5,7 @@
         $id = $_GET['id'];
     //echo $id;
     //exit;
-    $sql = "select * from product where prod_id = '{$id}'";
+    $sql = "select categories.cate_name, product.* from product inner join categories on product.cate_id = categories.id where prod_id = {$id}";
 
     $query = $db->query($sql);
     //var_dump($query);
@@ -19,7 +19,7 @@
   
   <tr>
     <td width="220" rowspan="7" align="center" valign="top"><div>
-      <p><img src="image\product\lastadd\<?php echo $row['picture']; ?>" width="170" height="170"><br />
+      <p><img src="admin\image\product\<?php echo $row['cate_name']; ?>\<?php echo $row['picture']; ?>" width="170" height="170"><br />
         
       </p>
       <a href="index.php?process=add-cart&&id=<?php echo $row['prod_id']; ?>">Add to Cart</a>
@@ -93,7 +93,7 @@ thanh toán:</td>
   
   //$sql1 = "SELECT user.user_name, comment.content from comment INNER JOIN user ON comment.user_id = user.id where cmt_prod_id = {$id}";
 ?>
-  <table width="250">
+  <table width="600" class="table">
 <?php
   
   $sql1 = "select user.user_name from comment inner join user on comment.user_id = user.id where cmt_prod_id = {$id}";
@@ -125,7 +125,7 @@ thanh toán:</td>
 
 ?>
     <tr>
-      <td><?php echo $username; ?></td>
+      <td width="100" align="center"><?php echo $username; ?></td>
       <td><?php echo $content; ?></td>
       <td>
         <?php
@@ -151,8 +151,8 @@ thanh toán:</td>
 <form action="index.php?process=comment" method="post">
   <input type="hidden" name="id" value="<?php echo $id; ?>">
   <input type="hidden" name="user" value="<?php echo $_SESSION['user']; ?>">
-  <input type="text" name="content">
-  <input type="submit" name="comment" value="Comment">
+  <input type="text" name="content" class="form-group">
+  <input type="submit" name="comment" value="Comment" class="btn btn-default">
 </form>
 </div>
 

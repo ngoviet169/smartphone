@@ -37,7 +37,7 @@
             $tranghientai = $_GET['tranghientai'];
             }
 
-    $sql1 = "select * from product where cate_id = 1 limit {$dongbatdau}, {$kichthuoctrang}";
+    $sql1 = "select * from product where cate_id = 1 order by created_at desc limit {$dongbatdau}, {$kichthuoctrang}";
 
     $recordset = $db->query($sql1);
 

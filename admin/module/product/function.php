@@ -31,9 +31,6 @@
             $file_tmp =$_FILES['image']['tmp_name'];
             $file_type=$_FILES['image']['type'];
             $path = "image/product/".$row['cate_name']."/";
-            /*echo $path;
-            exit;*/
-            $path1 = "image/product/lastAdd/";
             $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
             $expensions= array("jpeg","jpg","png");
               
@@ -53,8 +50,7 @@
                     return;
                 }
                 move_uploaded_file($file_tmp,$path.$file_name);
-                move_uploaded_file($file_tmp,$path1.$file_name);
-                echo "done";
+                
             }
             else{
                 print_r($errors);
