@@ -19,7 +19,7 @@
   
   <tr>
     <td width="220" rowspan="7" align="center" valign="top"><div>
-      <p><img src="admin\image\product\<?php echo $row['cate_name']; ?>\<?php echo $row['picture']; ?>" width="170" height="170"><br />
+      <p><img src="admin\image\product\<?php echo $row['cate_name']; ?>\<?php echo $row['picture']; ?>" width="170" height="170" class="img-rounded"><br />
         
       </p>
       <a href="index.php?process=add-cart&&id=<?php echo $row['prod_id']; ?>">Add to Cart</a>
@@ -152,7 +152,7 @@ thanh toán:</td>
   <input type="hidden" name="id" value="<?php echo $id; ?>">
   <input type="hidden" name="user" value="<?php echo $_SESSION['user']; ?>">
   <input type="text" name="content" class="form-group">
-  <input type="submit" name="comment" value="Comment" class="btn btn-default">
+  <input type="submit" name="comment" value="Comment" class="btn btn-primary">
 </form>
 </div>
 

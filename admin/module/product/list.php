@@ -19,7 +19,7 @@
     </thead>
     <tbody>
         <?php
-            $sql = "select * from product join categories on product.cate_id = categories.id";
+            $sql = "select * from product join categories on product.cate_id = categories.id order by prod_id desc";
 
             $recordset = $db->query($sql);
 
