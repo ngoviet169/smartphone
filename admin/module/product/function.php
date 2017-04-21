@@ -7,15 +7,32 @@
         $sql = "insert into product(cate_id, prod_name, description, picture, price) value({$cate_id}, '{$prod_name}', '{$description}', '{$picture}', '{$price}')";
 
         $query = $db->query($sql);
+
+        $last_id = $db->lastInsertId();
+        
+        
+        echo $last_id;
+        exit;
     }
     if(isset($_POST['categories']))
         $cate_id = $_POST['categories'];
+    //echo $cate_id;
     if(isset($_POST['prod_name']))
         $prod_name = $_POST['prod_name'];
     if(isset($_POST['description']))
         $description = $_POST['description'];
     if(isset($_POST['price']))
         $price = $_POST['price'];
+    //$rank_id = 0;
+    if(isset($_POST['rank']))
+        $rank_id = $_POST['rank'];
+    $count = 0;
+    $count = count($rank_id);
+    //echo $count;
+    for($i = 0; $i < $count; $i++)
+        echo $rank_id[$i].", ";
+        //echo "khong co rank";
+    exit;
     if(isset($_POST['upload'])){
         if(isset($_FILES['image'])){
 
@@ -58,6 +75,7 @@
         }
         $picture = $file_name;
         addProduct($cate_id, $prod_name, $description, $picture, $price);
+        
         header('location:index.php?function=prod_add');
     }
 ?>

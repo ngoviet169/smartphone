@@ -35,7 +35,7 @@
   </tr>
   <tr>
     <td height="25" style="padding-left:20px; border-bottom:1px dotted #666; border-right:1px dotted #666">Giá:</td>
-    <td style="border-bottom:1px dotted #666; padding-left:5px"><font color="#FF0000"><?php  echo number_format($row['price']); ?></font></td>
+    <td style="border-bottom:1px dotted #666; padding-left:5px"><font style="font-weight: bold;"><?php  echo number_format($row['price']); ?></font></td>
   </tr>
   <tr>
     <td height="25" style="padding-left:20px; border-bottom:1px dotted #666; border-right:1px dotted #666">Thuế VAT:</td>

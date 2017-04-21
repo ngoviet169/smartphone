@@ -7,6 +7,7 @@
             <th>ID</th>
             <th>Category</th>
             <th>Name</th>
+            <th>Level</th>
             <th>Description</th>
             <th>Image</th>
             <th>Price</th>
@@ -29,6 +30,7 @@
                     <td><?php echo $row['prod_id']; ?></td>
                     <td><?php echo $row['cate_name']; ?></td>
                     <td><?php echo $row['prod_name']; ?></td>
+                    <td><?php echo $row['prod_level']; ?></td>
                     <td><?php echo $row['description']; ?></td>
                     <td><?php echo $row['picture']; ?></td>
                     <td><?php echo $row['price']; ?></td>

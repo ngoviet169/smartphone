@@ -27,7 +27,27 @@
                 ?>
             </select>
         </div>
-        
+        <?php
+            //include('connect.php');
+
+            $sql1 = "select * from rank";
+
+            $query1 = $db->query($sql1);
+        ?>
+        <div class="form-group">
+            <label>Rank</label>
+            <select class="selectpicker" name="rank[]" multiple="multiple">
+                <?php
+                    while($row1 = $query1->fetch(PDO::FETCH_ASSOC))
+                    {
+                ?>
+                        <option value="<?php echo $row1['rank_id']; ?>"><?php echo $row1['rank_name']; ?></option>
+                <?php
+                    }
+                ?>
+            </select>
+        </div>
+
         <div class="form-group">
             <label>Name</label>
             <input class="form-control" name="prod_name" placeholder="Enter name" />
