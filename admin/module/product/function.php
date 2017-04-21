@@ -9,30 +9,31 @@
         $query = $db->query($sql);
 
         $last_id = $db->lastInsertId();
+
+        if(isset($_POST['rank']))
+            $rank_id = $_POST['rank'];
+        $count = 0;
+        $count = count($rank_id);
         
+        for($i = 0; $i < $count; $i++){
+            $sql1 = "insert into prod_rank(prod_id, rank_id) values ({$last_id}, {$rank_id[$i]})";
+            
+            $query1 = $db->query($sql1);
+        }
         
-        echo $last_id;
-        exit;
     }
     if(isset($_POST['categories']))
         $cate_id = $_POST['categories'];
     //echo $cate_id;
     if(isset($_POST['prod_name']))
         $prod_name = $_POST['prod_name'];
+
     if(isset($_POST['description']))
         $description = $_POST['description'];
+    
     if(isset($_POST['price']))
         $price = $_POST['price'];
-    //$rank_id = 0;
-    if(isset($_POST['rank']))
-        $rank_id = $_POST['rank'];
-    $count = 0;
-    $count = count($rank_id);
-    //echo $count;
-    for($i = 0; $i < $count; $i++)
-        echo $rank_id[$i].", ";
-        //echo "khong co rank";
-    exit;
+
     if(isset($_POST['upload'])){
         if(isset($_FILES['image'])){
 
